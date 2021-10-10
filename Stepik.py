@@ -1,17 +1,14 @@
 # объявление функции
-def is_palindrome(text):
-    text = text.lower()
-    res = ''
-    i = 0
-    while i < len(text):
-        if text[i] not in [' ', ',', '.', '!', '?', '-']:
-            res += text[i]
-        i += 1
-    return res == res[::-1]
+def is_pangram(text):
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    for letter in alphabet:
+        if letter != ' ' and letter not in text:
+            return False
+    return True
 
 
 # считываем данные
-txt = input()
+text = input()
 
 # вызываем функцию
-print(is_palindrome(txt))
+print(is_pangram(text))

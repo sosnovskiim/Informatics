@@ -1,13 +1,15 @@
-t, s, n = input(), input(), int(input())
-sn = s * n
-sn_ln = len(sn)
-t_ln = len(t)
+n = int(input())
+col_sums = [0, 0, 0, 0, 0]
+for _ in range(n):
+    row = input().split()
+    for i in range(5):
+        col_sums[i] += int(row[i])
+students_in_group = n // 2
 cnt = 0
-for i in range(sn_ln - t_ln + 1):
-    if i + t_ln - 1 < sn_ln:
-        sl = sn[i:i + t_ln]
-        if t == sl:
-            cnt += 1
-    else:
-        break
-print(cnt)
+for i in range(5):
+    if col_sums[i] >= students_in_group:
+        cnt += 1
+if cnt >= 2:
+    print('YES')
+else:
+    print('NO')
